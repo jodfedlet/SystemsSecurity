@@ -1,36 +1,42 @@
-def prim(j):
-    t = 1
-    while t == 1:
-        n = j+1
-        k = 2
-        prime = 0
-        while k <= n:
-            if n % k == 0:
-                prime+=1
-            k+=1    
-        if prime == 1:
-            return n
+def divisor(a):
+    i = 2
+    liste = []
+    while(a >= i):
+        if a % i == 0:
+            res = a // i
+            liste.append(i)
+            a = res 
         else:
-            j+=1
+            i+=1  
+    return liste
 
+def mdc(fin, l):
+    listFin = divisor(fin)
+    listE   = divisor(l)
+    a = [ e for e in listE if e in listFin]
+    md = 1
+    for h in a:
+        md *=h 
+    return md
+
+def calcularE(fiN,e):
+    efin = e
+    if mdc(fiN, efin) == 1:
+        return efin
+    else:
+        e += 1
+        return calcularE(fiN,e)
+            
 p = int(input('Enter a number: '))
 q = int(input('Enter a secund number: '))
 n = p * q
-e = (p - 1) * (q - 1)
-a = e
-i = 2
-list = []
-while(a >= i):
-    if a % i == 0:
-        res = a // i
-        list.append(i)
-        a = res 
-    else:
-        i+=1  
+fiN = (p - 1) * (q - 1)
 
-last = list[-1]
-j = last + 1
-e = prim(j)
-print(e)
-print(n)
+print('N: ',n)
+print('Fi de n: ',fiN)
+e = calcularE(fiN, 2)
+print('e: ',e)
+
+
+
 
