@@ -27,6 +27,16 @@ def calcularE(fiN,e):
         e += 1
         return calcularE(fiN,e)
 
+def isPrime(n):
+    prim = 0
+    for i in range(2,n+1):
+        if n % i == 0:
+            prim+=1
+    if prim == 1:
+        return True
+    else:
+        return False
+
 # def inversoDoE(e, fiN):
 #     fin = fiN
 #     fi = []
@@ -61,16 +71,20 @@ def cifrarMes(n, e, messLower):
 
 
 import string as str  
-p,q = input('Digite os 2 numeros primos: ').split(' ')        
+p,q = input('Digite os 2 numeros primos: ').split(' ')  
 p = int(p)
 q = int(q)
-n = p * q
-fiN = (p - 1) * (q - 1)
-e = calcularE(fiN, 2)
-print('Chave publica: ({} , {})'.format(n,e))
-message = input('Enter a message: ')
-messLower = message.lower()
-cifrarMes(n,e,messLower)
+
+if(isPrime(p) == False or isPrime(q) == False):
+    print('Os numeros devem ser primos!')
+else:
+    n = p * q
+    fiN = (p - 1) * (q - 1)
+    e = calcularE(fiN, 2)
+    print('Chave publica: ({} , {})'.format(n,e))
+    message = input('Enter a message: ')
+    messLower = message.lower()
+    cifrarMes(n,e,messLower)
 
     
 
