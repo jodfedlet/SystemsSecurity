@@ -27,10 +27,15 @@ def calcularE(fiN,e):
         e += 1
         return calcularE(fiN,e)
 
-# def inverrsoDoE(e):
-#     inv = e
-    
-#     return d
+# def inversoDoE(e, fiN):
+#     fin = fiN
+#     fi = []
+#     if e % fiN == 1:
+#         fi.append(fiN)
+#         return fi
+#     else:
+#         fiN +=1
+#         return inversoDoE(e, fiN)
 
 def cifrarMes(n, e, messLower):
     cifrar = []
@@ -43,15 +48,16 @@ def cifrarMes(n, e, messLower):
     for cif in cifrar:
         print('{}'.format(cif), end="")   
     print()  
+    
 
-def decifrarMes(n,e):
-    dn,de = input('Digite a chave de 2 numeros: ').split(' ')        
-    dn = int(dn)
-    de = int(de)
-    if n != dn or e != de:
-        print('Chave invalida')
-    else:
-        print('Teste')
+# def decifrarMes(n,e):
+#     dn,de = input('Digite a chave de 2 numeros: ').split(' ')        
+#     dn = int(dn)
+#     de = int(de)
+#     if n != dn or e != de:
+#         print('Chave invalida')
+#     else:
+#         print('Teste')
 
 
 import string as str  
