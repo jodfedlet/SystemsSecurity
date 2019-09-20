@@ -27,21 +27,25 @@ def calcularE(fiN,e):
         e += 1
         return calcularE(fiN,e)
 
-def cifrarMes(n, e):
-    message = input('Enter a message: ')
-    messLower = message.lower()
+# def inverrsoDoE(e):
+#     inv = e
+    
+#     return d
+
+def cifrarMes(n, e, messLower):
     cifrar = []
     for let in messLower:
         asc = ord(let)
         cryp = asc**e % n
         cifrar.append(cryp)
+    print('Mensagem Normal: ', messLower.capitalize())     
     print('Mensagem Cifrada: ', end="") 
     for cif in cifrar:
-        print('{} '.format(cif), end="")   
+        print('{}'.format(cif), end="")   
     print()  
 
 def decifrarMes(n,e):
-    dn,de = input('Digite a chave de 2 numeros: ').split('')        
+    dn,de = input('Digite a chave de 2 numeros: ').split(' ')        
     dn = int(dn)
     de = int(de)
     if n != dn or e != de:
@@ -58,8 +62,9 @@ n = p * q
 fiN = (p - 1) * (q - 1)
 e = calcularE(fiN, 2)
 print('Chave publica: ({} , {})'.format(n,e))
-
-cifrarMes(n,e)
+message = input('Enter a message: ')
+messLower = message.lower()
+cifrarMes(n,e,messLower)
 
     
 
