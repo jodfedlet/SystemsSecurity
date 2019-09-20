@@ -40,9 +40,20 @@ def cifrarMes(n, e):
         print('{} '.format(cif), end="")   
     print()  
 
-import string as str          
-p = int(input('Enter a number: '))
-q = int(input('Enter a secund number: '))
+def decifrarMes(n,e):
+    dn,de = input('Digite a chave de 2 numeros: ').split('')        
+    dn = int(dn)
+    de = int(de)
+    if n != dn or e != de:
+        print('Chave invalida')
+    else:
+        print('Teste')
+
+
+import string as str  
+p,q = input('Digite os 2 numeros primos: ').split(' ')        
+p = int(p)
+q = int(q)
 n = p * q
 fiN = (p - 1) * (q - 1)
 e = calcularE(fiN, 2)
