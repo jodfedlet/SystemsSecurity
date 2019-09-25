@@ -102,20 +102,20 @@ else:
     fiN = (p - 1) * (q - 1)
     max = 0
     max = p if p > q else q
-    ee = max+1
-    e = calcularE(fiN, ee)
+    maxNUm = max+1
+    e = calcularE(fiN, maxNUm)
     print('Chave publica: ({} , {})'.format(e,n))
     print()
     message = input('Enter a message: ')
     messLower = message.lower()
     mess =  cifrarMes(n,e,messLower)
         
-    d = calcularD(13,640, 2)
+    d = calcularD(maxNUm,fiN, maxNUm)
     
     print('Chave privada: ({} , {})'.format(d,n))
     print()
     
-    decifrarMes(13,697,197, mess)
+    decifrarMes(maxNUm,n,d, mess)
 
     
 
