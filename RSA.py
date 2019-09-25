@@ -10,6 +10,15 @@ def divisor(a):
             i+=1  
     return liste
 
+def calcularD(e,fiN, d):
+    i = 2
+    while(d >= i):
+        dd = d
+        if e * dd % fiN == 1:
+            return d
+        else:
+            d+=1  
+
 def mdc(fin, l):
     listFin = divisor(fin)
     listE   = divisor(l)
@@ -69,8 +78,7 @@ def cifrarMes(n, e, messLower):
 #     else:
 #         print('Teste')
 
-
-import string as str  
+  
 p,q = input('Digite os 2 numeros primos: ').split(' ')  
 p = int(p)
 q = int(q)
@@ -80,11 +88,19 @@ if(isPrime(p) == False or isPrime(q) == False):
 else:
     n = p * q
     fiN = (p - 1) * (q - 1)
-    e = calcularE(fiN, 2)
-    print('Chave publica: ({} , {})'.format(n,e))
+    max = 0
+    max = p if p > q else q
+    ee = max+1
+    e = calcularE(fiN, ee)
+    print('Chave publica: ({} , {})'.format(e,n))
     message = input('Enter a message: ')
     messLower = message.lower()
     cifrarMes(n,e,messLower)
+    
+    d = calcularD(e,fiN, ee)
+    
+    print('Chave privada: ({} , {})'.format(d,fiN))
+    
 
     
 
