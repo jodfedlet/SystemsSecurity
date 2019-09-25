@@ -71,21 +71,27 @@ def cifrarMes(n, e, messLower):
     
 
 def decifrarMes(e,n,d, mess):
-    ddd,dn = input('Digite a chave privada: ').split(' ')        
-    dn = int(dn)
-    ddd = int(ddd)
-    if n != dn or ddd != d:
-        print('Chave invalida')
-    else:
-        decifrar = []
-        for num in mess:
-            decryp = num ** d % n
-            decifrar.append(decryp)
-        print('Mensagem Cifrada: ', mess)     
-        print('Mensagem Decifrada ', end="") 
-        for cif in decifrar:
-            print('{}'.format(cif), end="")   
-        print()  
+    
+    while True:
+        try:
+            ddd,dn = input('Digite a chave privada: ').split(' ')        
+            dn = int(dn)
+            ddd = int(ddd)
+            if n != dn or ddd != d:
+                print('Chave invalida')
+            else:
+                decifrar = []
+                for num in mess:
+                    decryp = num ** d % n
+                    decifrar.append(decryp)
+                print('Mensagem Cifrada: ', mess)     
+                print('Mensagem Decifrada ', end="") 
+                for cif in decifrar:
+                    print('{}'.format(cif), end="")   
+                print() 
+        except ValueError:
+             print('Voce deve digitar 2 numeros na mesma linha!')
+                     
         
 while True:       
     try:
