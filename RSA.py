@@ -110,12 +110,12 @@ else:
     messLower = message.lower()
     mess =  cifrarMes(n,e,messLower)
         
-    d = calcularD(maxNUm,fiN, maxNUm)
+    d = calcularD(e,fiN, maxNUm)
     
     print('Chave privada: ({} , {})'.format(d,n))
     print()
     
-    decifrarMes(maxNUm,n,d, mess)
+    decifrarMes(e,n,d, mess)
 
     
 
