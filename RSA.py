@@ -66,17 +66,29 @@ def cifrarMes(n, e, messLower):
     print('Mensagem Cifrada: ', end="") 
     for cif in cifrar:
         print('{}'.format(cif), end="")   
-    print()  
+    print() 
+    return cifrar 
     
 
-# def decifrarMes(n,e):
-#     dn,de = input('Digite a chave de 2 numeros: ').split(' ')        
-#     dn = int(dn)
-#     de = int(de)
-#     if n != dn or e != de:
-#         print('Chave invalida')
-#     else:
-#         print('Teste')
+def decifrarMes(e,n,d, mess):
+    ddd,dn = input('Digite a chave de 2 numeros: ').split(' ')        
+    dn = int(dn)
+    ddd = int(ddd)
+    if n != dn or ddd != d:
+        print('Chave invalida')
+    else:
+        decifrar = []
+        for num in mess:
+            #asc = chr(let)
+            decryp = num ** d % n
+            print(decryp)
+        #     decifrar.append(decryp)
+        # print('Mensagem Cifrad: ', mess.capitalize())     
+        # print('Mensagem Decifrada ', end="") 
+        # for cif in decifrar:
+        #     print('{}'.format(cif), end="")   
+        # print()  
+        
 
   
 p,q = input('Digite os 2 numeros primos: ').split(' ')  
@@ -93,14 +105,17 @@ else:
     ee = max+1
     e = calcularE(fiN, ee)
     print('Chave publica: ({} , {})'.format(e,n))
+    print()
     message = input('Enter a message: ')
     messLower = message.lower()
-    cifrarMes(n,e,messLower)
+    mess =  cifrarMes(n,e,messLower)
+        
+    d = calcularD(13,640, 2)
     
-    d = calcularD(e,fiN, ee)
+    print('Chave privada: ({} , {})'.format(d,n))
+    print()
     
-    print('Chave privada: ({} , {})'.format(d,fiN))
-    
+    decifrarMes(13,697,197, mess)
 
     
 
