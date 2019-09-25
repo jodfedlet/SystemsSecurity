@@ -46,16 +46,6 @@ def isPrime(n):
     else:
         return False
 
-# def inversoDoE(e, fiN):
-#     fin = fiN
-#     fi = []
-#     if e % fiN == 1:
-#         fi.append(fiN)
-#         return fi
-#     else:
-#         fiN +=1
-#         return inversoDoE(e, fiN)
-
 def cifrarMes(n, e, messLower):
     cifrar = []
     for let in messLower:
@@ -69,9 +59,7 @@ def cifrarMes(n, e, messLower):
     print() 
     return cifrar 
     
-
 def decifrarMes(e,n,d, mess):
-    
     while True:
         try:
             ddd,dn = input('Digite a chave privada: ').split(' ')        
@@ -84,15 +72,25 @@ def decifrarMes(e,n,d, mess):
                 for num in mess:
                     decryp = num ** d % n
                     decifrar.append(decryp)
+                print(55*'-')    
                 print('Mensagem Cifrada: ', mess)     
-                print('Mensagem Decifrada ', end="") 
+                print('Mensagem Decifrada: ', end="") 
                 for cif in decifrar:
-                    print('{}'.format(cif), end="")   
+                    print('{}'.format(cif), end="")
                 print() 
+                print(55*'-')
+                texto = input('Quer ver o texto da mensagem? (S para aceitar): ')
+                if texto == 'S' or texto == 's':
+                    print('Mensagem Decifrada em texto: ', end="") 
+                    for cif in decifrar:
+                        print('{}'.format(chr(cif)), end="")
+                    print()
+                    exit(1)
+                else:
+                    exit(1)
         except ValueError:
              print('Voce deve digitar 2 numeros na mesma linha!')
-                     
-        
+                         
 while True:       
     try:
         p,q = input('Digite os 2 numeros primos: ').split(' ')  
@@ -108,20 +106,22 @@ while True:
             max = p if p > q else q
             maxNUm = max+1
             e = calcularE(fiN, maxNUm)
+            print(55*'*')
             print('Chave publica: ({} , {})'.format(e,n))
+            print(55*'*')
             print()
             message = input('Enter a message: ')
             messLower = message.lower()
             
-            mess =  cifrarMes(n,e,messLower)
-                
+            mess =  cifrarMes(n,e,messLower)  
             d = calcularD(e,fiN, maxNUm)
             print()
+            print(55*'*')
             print('Chave privada: ({} , {})'.format(d,n))
+            print(55*'*')
             print()
-            
             decifrarMes(e,n,d, mess)
-
+            
     except ValueError:
         print('Voce deve digitar 2 numeros na mesma linha!')
     
