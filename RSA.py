@@ -50,7 +50,7 @@ def cifrarMes(n, e, messLower):
     cifrar = []
     for let in messLower:
         asc = ord(let)
-        cryp = asc**e % n
+        cryp = pow(asc,e,n)
         cifrar.append(cryp)
     print('Mensagem Normal: ', messLower.capitalize())     
     print('Mensagem Cifrada: ', end="") 
@@ -70,7 +70,7 @@ def decifrarMes(e,n,d, mess):
             else:
                 decifrar = []
                 for num in mess:
-                    decryp = num ** d % n
+                    decryp = pow(num,d,n)
                     decifrar.append(decryp)
                 print(55*'-')    
                 print('Mensagem Cifrada: ', mess)     
@@ -97,9 +97,7 @@ while True:
         p = int(p)
         q = int(q)
 
-        if(isPrime(p) == False or isPrime(q) == False):
-            print('Os numeros devem ser primos!')
-        else:
+        if(isPrime(p) and isPrime(q)):
             n = p * q
             fiN = (p - 1) * (q - 1)
             max = 0
@@ -121,6 +119,8 @@ while True:
             print(55*'*')
             print()
             decifrarMes(e,n,d, mess)
+        else:
+            print('Os numeros devem ser primos!')
             
     except ValueError:
         print('Voce deve digitar 2 numeros na mesma linha!')
