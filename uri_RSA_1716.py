@@ -28,21 +28,17 @@ def calcularD(e,fiN, d):
     i = 2
     while(d >= i):
         dd = d
-        if e * dd % fiN == 1:
+        if e * dd % fiN == 1:  
             return d
         else:
             d+=1  
 
 def decifrarMes(n,d, mess):
-  decryp = mess ** d % n 
-  print(decryp)
- 
-n,e,c = input().split(' ')  
-n = int(n)
-e = int(e)
-c = int(c)
+  return pow(mess, d, n) 
+
+n,e,c = [ int(x) for x in input().split(" ")] 
 if n > 14 and n < pow(10,9) and e > 0 and c > 0 and c < n:
   pq = factoriser(n)
   fiN = (pq[0] - 1) * (pq[1] - 1)
   d = calcularD(e,fiN, 2)
-  decifrarMes(n,d, c)
+  print(decifrarMes(n,d, c))
