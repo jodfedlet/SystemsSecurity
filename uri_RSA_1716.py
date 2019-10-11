@@ -33,19 +33,17 @@ def calcularD(e,fiN, d):
         else:
             d+=1  
 
-def decifrarMes(e,n,d, mess):
-    decryp = e ** d % n 
-    print('Mensagem: ',decryp)
-    print() 
+def decifrarMes(n,d, mess):
+  if mess > 0 and mess < n:
+    decryp = mess ** d % n 
+    print(decryp)
  
-n,e,c = input('Digite os 3 valores: ').split(' ')  
+n,e,c = input().split(' ')  
 n = int(n)
 e = int(e)
 c = int(c)
 
 pq = factoriser(n)
 fiN = (pq[0] - 1) * (pq[1] - 1)
-
 d = calcularD(e,fiN, 2)
-print(d)
-# decifrarMes(e,n,d, c)
+decifrarMes(n,d, c)
