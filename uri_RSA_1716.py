@@ -11,7 +11,7 @@ def isPrime(n):
 def factoriser(n):
   i = 2
   lista = []
-  while True:
+  while n > i:
     a = i
     if n % a == 0:
       res = n // a
@@ -34,16 +34,15 @@ def calcularD(e,fiN, d):
             d+=1  
 
 def decifrarMes(n,d, mess):
-  if mess > 0 and mess < n:
-    decryp = mess ** d % n 
-    print(decryp)
+  decryp = mess ** d % n 
+  print(decryp)
  
 n,e,c = input().split(' ')  
 n = int(n)
 e = int(e)
 c = int(c)
-
-pq = factoriser(n)
-fiN = (pq[0] - 1) * (pq[1] - 1)
-d = calcularD(e,fiN, 2)
-decifrarMes(n,d, c)
+if n > 14 and n < pow(10,9) and e > 0 and c > 0 and c < n:
+  pq = factoriser(n)
+  fiN = (pq[0] - 1) * (pq[1] - 1)
+  d = calcularD(e,fiN, 2)
+  decifrarMes(n,d, c)
