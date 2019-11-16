@@ -3,7 +3,7 @@ def cifrar(msg, cv): #caracters + chave
 	return ''.join([cesar(char, cv) for char in msg.lower()])
 
 mensagem_original = input('Digite a mensagem: ')
-chave 	 = int(input('Digite a chave da codificacao: '))
+chave 	 = int(input('Digite a chave de codificacao: '))
 
 def decifrar(cifragem_de_cesar, cv): #caracters - chave
 	cesar = lambda char, cv, alf=26: chr((ord(char) - ord('a') - cv)%alf + ord('a'))
